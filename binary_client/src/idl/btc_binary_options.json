@@ -1,0 +1,146 @@
+{
+  "address": "HQ1GUunXVdBBCc7iFdS8y2Q423JD8sMXuBxmGT7n2LzX",
+  "metadata": {
+    "name": "btc_binary_options",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "settle_game",
+      "discriminator": [
+        96,
+        54,
+        24,
+        189,
+        239,
+        198,
+        86,
+        29
+      ],
+      "accounts": [
+        {
+          "name": "game",
+          "writable": true
+        },
+        {
+          "name": "player",
+          "writable": true
+        },
+        {
+          "name": "house",
+          "writable": true
+        },
+        {
+          "name": "pyth_price_feed"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "start_game",
+      "discriminator": [
+        249,
+        47,
+        252,
+        172,
+        184,
+        162,
+        245,
+        14
+      ],
+      "accounts": [
+        {
+          "name": "game",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "player",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "timeframe",
+          "type": "u64"
+        },
+        {
+          "name": "bet_amount",
+          "type": "u64"
+        },
+        {
+          "name": "prediction",
+          "type": "bool"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Game",
+      "discriminator": [
+        27,
+        90,
+        166,
+        125,
+        74,
+        100,
+        121,
+        18
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "GameAlreadySettled",
+      "msg": "The game has already been settled"
+    },
+    {
+      "code": 6001,
+      "name": "GameNotFinished",
+      "msg": "The game has not finished yet"
+    }
+  ],
+  "types": [
+    {
+      "name": "Game",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "player",
+            "type": "pubkey"
+          },
+          {
+            "name": "start_time",
+            "type": "u64"
+          },
+          {
+            "name": "end_time",
+            "type": "u64"
+          },
+          {
+            "name": "bet_amount",
+            "type": "u64"
+          },
+          {
+            "name": "prediction",
+            "type": "bool"
+          },
+          {
+            "name": "is_settled",
+            "type": "bool"
+          }
+        ]
+      }
+    }
+  ]
+}

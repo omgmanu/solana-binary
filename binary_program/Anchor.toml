@@ -1,0 +1,18 @@
+[toolchain]
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+binary_program = "HQ1GUunXVdBBCc7iFdS8y2Q423JD8sMXuBxmGT7n2LzX"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "npx esrun tests/binary_program.ts"
