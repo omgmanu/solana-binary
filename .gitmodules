@@ -1,0 +1,9 @@
+[submodule "program"]
+	path = program
+	url = https://github.com/omgmanu/lemme-predict-program
+[submodule "api"]
+	path = api
+	url = https://github.com/omgmanu/lemme-predict-api
+[submodule "client"]
+	path = client
+	url = https://github.com/omgmanu/lemme-predict-client
